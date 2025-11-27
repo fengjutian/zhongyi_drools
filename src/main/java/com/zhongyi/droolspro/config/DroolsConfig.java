@@ -11,6 +11,7 @@ import org.kie.api.runtime.KieSession;
 import org.kie.internal.utils.KieHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 
 import java.io.IOException;
 import java.net.URL;
@@ -33,10 +34,9 @@ public class DroolsConfig {
        KieHelper helper = new KieHelper();
 
        try {
-           List<String> ruleFiles = getRuleFiles();
-           log.info("加载规则文件: {}", ruleFiles);
-           for (String ruleFile : ruleFiles) {
-               String resourcePath = RULES_PATH + ruleFile;
+           List<String> rulePaths = getRuleResourcePaths();
+           log.info("加载规则文件: {}", rulePaths);
+           for (String resourcePath : rulePaths) {
                Resource resource = ks.getResources().newClassPathResource(resourcePath);
                log.info("添加规则资源: {}", resourcePath);
                helper.addResource(resource, ResourceType.DRL);
@@ -56,20 +56,16 @@ public class DroolsConfig {
        }
    }
 
-   private List<String> getRuleFiles() throws IOException {
-       List<String> ruleFiles = new ArrayList<>();
-       ClassLoader classLoader = getClass().getClassLoader();
-
-       // 获取规则目录下的所有资源
-       Enumeration<URL> resources = classLoader.getResources(RULES_PATH);
-       while (resources.hasMoreElements()) {
-           URL resource = resources.nextElement();
-           // 这里简化处理，实际项目中可能需要更复杂的资源扫描
-           // 但为了基本功能，我们只直接添加已知的规则文件
+   private List<String> getRuleResourcePaths() throws IOException {
+       List<String> rulePaths = new ArrayList<>();
+       PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
+       org.springframework.core.io.Resource[] resources = resolver.getResources("classpath*:" + RULES_PATH + "*" + DRL_SUFFIX);
+       for (org.springframework.core.io.Resource res : resources) {
+           String filename = res.getFilename();
+           if (filename != null && filename.endsWith(DRL_SUFFIX)) {
+               rulePaths.add(RULES_PATH + filename);
+           }
        }
-
-       // 直接添加已知的规则文件，避免复杂的资源扫描
-       ruleFiles.add("user-rules.drl");
-       return ruleFiles;
+       return rulePaths;
    }
 }
