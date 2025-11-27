@@ -160,3 +160,28 @@ Identify and stop the process that's listening on port 9001 or configure this ap
 2025-11-27T21:42:49.385+08:00  INFO 37980 --- [droolspro] [http-nio-9001-exec-2] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
 2025-11-27T21:42:49.387+08:00  INFO 37980 --- [droolspro] [http-nio-9001-exec-2] o.s.w.s.DispatcherServlet                : Completed initialization in 2 ms
 2025-11-27T21:42:49.489+08:00  INFO 37980 --- [droolspro] [http-nio-9001-exec-2] rules                                    : 处方：六味地黄丸（阴虚）
+2025-11-27T22:11:08.156+08:00  INFO 37980 --- [droolspro] [SpringApplicationShutdownHook] o.s.b.t.GracefulShutdown                 : Commencing graceful shutdown. Waiting for active requests to complete
+2025-11-27T22:11:08.481+08:00  INFO 37980 --- [droolspro] [tomcat-shutdown] o.s.b.t.GracefulShutdown                 : Graceful shutdown complete
+2025-11-27T22:11:20.958+08:00  INFO 8844 --- [droolspro] [main] c.z.d.DroolsproApplication               : Starting DroolsproApplication using Java 17.0.12 with PID 8844 (C:\Users\26401\Desktop\zhongyi_drools\target\classes started by 26401 in C:\Users\26401\Desktop\zhongyi_drools)
+2025-11-27T22:11:20.968+08:00  INFO 8844 --- [droolspro] [main] c.z.d.DroolsproApplication               : No active profile set, falling back to 1 default profile: "default"
+2025-11-27T22:11:21.748+08:00  INFO 8844 --- [droolspro] [main] o.s.b.t.TomcatWebServer                  : Tomcat initialized with port 9001 (http)
+2025-11-27T22:11:21.758+08:00  INFO 8844 --- [droolspro] [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2025-11-27T22:11:21.759+08:00  INFO 8844 --- [droolspro] [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/11.0.14]
+2025-11-27T22:11:21.809+08:00  INFO 8844 --- [droolspro] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 811 ms
+2025-11-27T22:11:21.891+08:00  INFO 8844 --- [droolspro] [main] c.z.d.c.DroolsConfig                     : 加载规则文件: [rules/tcm-herb-compatibility.drl, rules/tcm-pattern-prescription.drl, rules/tcm-symptom-pattern.drl, rules/user-rules.drl]
+2025-11-27T22:11:21.896+08:00  INFO 8844 --- [droolspro] [main] c.z.d.c.DroolsConfig                     : 添加规则资源: rules/tcm-herb-compatibility.drl
+2025-11-27T22:11:21.899+08:00  INFO 8844 --- [droolspro] [main] c.z.d.c.DroolsConfig                     : 添加规则资源: rules/tcm-pattern-prescription.drl
+2025-11-27T22:11:21.899+08:00  INFO 8844 --- [droolspro] [main] c.z.d.c.DroolsConfig                     : 添加规则资源: rules/tcm-symptom-pattern.drl
+2025-11-27T22:11:21.899+08:00  INFO 8844 --- [droolspro] [main] c.z.d.c.DroolsConfig                     : 添加规则资源: rules/user-rules.drl
+2025-11-27T22:11:22.848+08:00  INFO 8844 --- [droolspro] [main] c.z.d.c.DroolsConfig                     : Drools KieSession 创建成功
+2025-11-27T22:11:22.986+08:00  INFO 8844 --- [droolspro] [main] o.d.c.k.b.i.KieContainerImpl             : Start creation of KieBase: defaultKieBase
+2025-11-27T22:11:23.229+08:00  INFO 8844 --- [droolspro] [main] o.d.c.k.b.i.KieContainerImpl             : End creation of KieBase: defaultKieBase
+2025-11-27T22:11:23.624+08:00  INFO 8844 --- [droolspro] [main] o.s.b.t.TomcatWebServer                  : Tomcat started on port 9001 (http) with context path '/'
+2025-11-27T22:11:23.627+08:00  INFO 8844 --- [droolspro] [main] c.z.d.DroolsproApplication               : Started DroolsproApplication in 3.078 seconds (process running for 3.566)
+2025-11-27T22:11:23.926+08:00  INFO 8844 --- [droolspro] [http-nio-9001-exec-2] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-11-27T22:11:23.926+08:00  INFO 8844 --- [droolspro] [http-nio-9001-exec-2] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2025-11-27T22:11:23.927+08:00  INFO 8844 --- [droolspro] [http-nio-9001-exec-2] o.s.w.s.DispatcherServlet                : Completed initialization in 1 ms
+2025-11-27T22:11:24.021+08:00  INFO 8844 --- [droolspro] [http-nio-9001-exec-2] rules                                    : 处方：六味地黄丸（阴虚）
+2025-11-27T22:11:25.726+08:00  INFO 8844 --- [droolspro] [http-nio-9001-exec-7] rules                                    : 处方：六味地黄丸（阴虚）
+2025-11-27T22:22:35.671+08:00  INFO 8844 --- [droolspro] [SpringApplicationShutdownHook] o.s.b.t.GracefulShutdown                 : Commencing graceful shutdown. Waiting for active requests to complete
+2025-11-27T22:22:35.949+08:00  INFO 8844 --- [droolspro] [tomcat-shutdown] o.s.b.t.GracefulShutdown                 : Graceful shutdown complete
