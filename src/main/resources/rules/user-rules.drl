@@ -1,20 +1,23 @@
 package rules
 
 import com.zhongyi.droolspro.model.User;
+import org.slf4j.Logger;
+
+global Logger log;
 
 rule "High Risk User"
     salience 10
 when
-    $u : User( age > 60 && creditScore < 500 )
+    $u : User( age >= 60, creditScore < 500 )
 then
-    System.out.println("命中规则：High Risk User");
+    log.info("命中规则：High Risk User");
     $u.setRiskLevel("HIGH");
 end
 
 rule "Middle Risk User"
 when
-    $u : User( age > 40 && creditScore < 650 )
+    $u : User( age > 40, creditScore < 650 )
 then
-    System.out.println("命中规则：Middle Risk User");
+    log.info("命中规则：Middle Risk User");
     $u.setRiskLevel("MIDDLE");
 end

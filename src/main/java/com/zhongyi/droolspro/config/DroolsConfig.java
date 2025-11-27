@@ -3,13 +3,12 @@ package com.zhongyi.droolspro.config;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Bean;
 import org.kie.api.KieServices;
-import org.kie.api.builder.KieBuilder;
-import org.kie.api.builder.KieFileSystem;
-import org.kie.api.builder.Results;
 import org.kie.api.builder.Message;
-import org.kie.api.runtime.KieContainer;
-import org.kie.api.runtime.KieSession;
+import org.kie.api.builder.Results;
 import org.kie.api.io.Resource;
+import org.kie.api.io.ResourceType;
+import org.kie.api.runtime.KieSession;
+import org.kie.internal.utils.KieHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -29,41 +28,32 @@ public class DroolsConfig {
    private static final String DRL_SUFFIX = ".drl";
 
    @Bean
-   public KieContainer kieContainer() {
+   public KieSession kieSession() {
        KieServices ks = KieServices.Factory.get();
-       KieFileSystem kfs = ks.newKieFileSystem();
+       KieHelper helper = new KieHelper();
 
        try {
-           // 使用资源加载器获取所有规则文件
            List<String> ruleFiles = getRuleFiles();
            log.info("加载规则文件: {}", ruleFiles);
            for (String ruleFile : ruleFiles) {
                String resourcePath = RULES_PATH + ruleFile;
                Resource resource = ks.getResources().newClassPathResource(resourcePath);
-               log.info("写入规则资源: {}", resourcePath);
-               kfs.write(resourcePath, resource);
+               log.info("添加规则资源: {}", resourcePath);
+               helper.addResource(resource, ResourceType.DRL);
            }
 
-           KieBuilder kb = ks.newKieBuilder(kfs).buildAll();
-           Results results = kb.getResults();
-
+           Results results = helper.verify();
            if (results.hasMessages(Message.Level.ERROR)) {
                log.error("Drools 规则加载失败: {}", results.getMessages(Message.Level.ERROR));
                throw new RuntimeException("Drools 规则加载失败:\n" + results);
            }
 
-           log.info("Drools KieContainer 创建成功");
-           return ks.newKieContainer(ks.getRepository().getDefaultReleaseId());
+           log.info("Drools KieSession 创建成功");
+           return helper.build().newKieSession();
        } catch (Exception e) {
-           log.error("Drools容器初始化失败", e);
-           throw new RuntimeException("Drools容器初始化失败:", e);
+           log.error("Drools会话初始化失败", e);
+           throw new RuntimeException("Drools会话初始化失败:", e);
        }
-   }
-
-   @Bean
-   public KieSession kieSession(KieContainer kieContainer) {
-       log.info("创建新的 KieSession");
-       return kieContainer.newKieSession();
    }
 
    private List<String> getRuleFiles() throws IOException {
