@@ -1,6 +1,6 @@
 package rules
 
-import com.example.droolsdemo.model.User;
+import com.zhongyi.droolspro.model.User;
 
 rule "High Risk User"
     salience 10
