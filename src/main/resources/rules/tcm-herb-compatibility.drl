@@ -1,0 +1,23 @@
+package rules
+
+import com.zhongyi.droolspro.model.Prescription;
+import com.zhongyi.droolspro.model.Herb;
+
+// 方剂 → 药材 → 禁忌
+
+rule "Herbs for SiJunZi"
+when
+    p : Prescription(name == "四君子汤")
+then
+    insert(new Herb("党参", "补气", null));
+    insert(new Herb("茯苓", "健脾", null));
+    insert(new Herb("甘草", "调和诸药", "腹胀者慎用"));
+end
+
+rule "Contra_Yin_Deficiency_Heat"
+when
+    h : Herb(name == "肉桂")
+    d : Diagnosis(pattern == "阴虚")
+then
+    modify(h){ setContraindication("阴虚火旺者忌用") };
+end

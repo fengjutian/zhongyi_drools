@@ -1,0 +1,64 @@
+package rules
+
+import com.zhongyi.droolspro.model.Symptom;
+import com.zhongyi.droolspro.model.Pulse;
+import com.zhongyi.droolspro.model.Tongue;
+import com.zhongyi.droolspro.model.Diagnosis;
+
+// 症状 → 辨证规则
+
+// --------------------- 气虚 ---------------------
+rule "Pattern_Qi_Deficiency"
+    salience 100
+when
+    s : Symptom(fatigue == true, shortBreath == true, spontaneousSweat == true)
+    t : Tongue(color == "淡")
+    p : Pulse(weak == true)
+then
+    insert(new Diagnosis(
+        "气虚",
+        "乏力、气短、自汗、舌淡、脉弱",
+        0.85
+    ));
+end
+
+// --------------------- 阴虚 ---------------------
+rule "Pattern_Yin_Deficiency"
+    salience 90
+when
+    s : Symptom(nightSweats == true, dryMouth == true)
+    t : Tongue(color == "红", cracks == true)
+    p : Pulse(thin == true, rapid == true)
+then
+    insert(new Diagnosis(
+        "阴虚",
+        "盗汗、口干、舌红带裂纹、脉细数",
+        0.88
+    ));
+end
+
+// --------------------- 风寒感冒 ---------------------
+rule "Pattern_Wind_Cold"
+when
+    s : Symptom(chills == true, noSweat == true, runnyNose == true)
+    t : Tongue(coating == "薄白")
+then
+    insert(new Diagnosis(
+        "风寒",
+        "恶寒、无汗、流清涕、薄白苔",
+        0.8
+    ));
+end
+
+// --------------------- 风热感冒 ---------------------
+rule "Pattern_Wind_Heat"
+when
+    s : Symptom(fever == true, soreThroat == true, yellowMucus == true)
+    t : Tongue(coating == "薄黄")
+then
+    insert(new Diagnosis(
+        "风热",
+        "发热、咽痛、黄痰、薄黄苔",
+        0.83
+    ));
+end

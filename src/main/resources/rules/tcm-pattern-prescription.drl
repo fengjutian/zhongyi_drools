@@ -1,0 +1,21 @@
+
+package rules
+
+import com.zhongyi.droolspro.model.Diagnosis;
+import com.zhongyi.droolspro.model.Prescription;
+
+// 辨证 → 方剂
+
+rule "Prescribe for Qi Deficiency"
+when
+    d : Diagnosis(pattern == "气虚")
+then
+    insert(new Prescription("四君子汤", "补气健脾"));
+end
+
+rule "Prescribe for Yin Deficiency"
+when
+    d : Diagnosis(pattern == "阴虚")
+then
+    insert(new Prescription("六味地黄丸", "滋阴补肾"));
+end
