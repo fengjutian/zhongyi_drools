@@ -27,7 +27,6 @@ public class DiagnosisService {
     private KieSession kieSession;
 
     public Map<String, Object> diagnose(Symptom symptom, Tongue tongue, Pulse pulse) {
-        // 创建一个新的会话实例，避免状态污染
         KieSession session = kieSession.getKieBase().newKieSession();
         
         try {
