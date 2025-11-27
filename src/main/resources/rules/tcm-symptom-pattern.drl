@@ -6,13 +6,16 @@ import com.zhongyi.droolspro.model.Tongue;
 import com.zhongyi.droolspro.model.Diagnosis;
 import org.slf4j.Logger;
 
-global Logger log;
+global Logger log; // 全局日志记录器，用于记录规则命中信息
 
 // 症状 → 辨证规则
 
 // --------------------- 气虚 ---------------------
+// 主规则：三项症状（乏力/气短/自汗）+ 舌淡 + 脉弱
+// 与支持规则互斥（activation-group "qi-exclusive"），避免重复诊断同一证型
 rule "Pattern_Qi_Deficiency"
     salience 100
+    activation-group "qi-exclusive"
 when
     s : Symptom(fatigue == true, shortBreath == true, spontaneousSweat == true)
     t : Tongue(color == "淡")
@@ -26,8 +29,11 @@ then
     ));
 end
 
+// 支持规则：三项症状 + 脉弱；并以体征组合（舌淡或舌淡体征、薄白苔或弱脉）增强命中
+// 与主规则互斥：只保留先触发的更高优先级规则结果
 rule "Pattern_Qi_Deficiency_Support"
     salience 95
+    activation-group "qi-exclusive"
 when
     s : Symptom(fatigue == true, shortBreath == true, spontaneousSweat == true)
     t : Tongue()
@@ -44,6 +50,7 @@ then
 end
 
 // --------------------- 阴虚 ---------------------
+// 盗汗、口干；舌红且有裂纹；脉细数
 rule "Pattern_Yin_Deficiency"
     salience 90
 when
@@ -59,6 +66,7 @@ then
 end
 
 // --------------------- 脾阳虚 ---------------------
+// 泄泻、腹冷痛、纳呆；舌淡薄白；脉弱
 rule "Pattern_Spleen_Yang_Deficiency"
     salience 85
 when
@@ -75,6 +83,7 @@ then
 end
 
 // --------------------- 湿热 ---------------------
+// 发热、黄痰；苔黄腻；脉滑数
 rule "Pattern_Damp_Heat"
     salience 80
 when
@@ -91,6 +100,7 @@ then
 end
 
 // --------------------- 寒湿 ---------------------
+// 恶寒、泄泻；苔薄白；脉滑弱
 rule "Pattern_Cold_Damp"
     salience 75
 when
@@ -107,6 +117,7 @@ then
 end
 
 // --------------------- 风寒感冒 ---------------------
+// 恶寒、无汗、流清涕；苔薄白
 rule "Pattern_Wind_Cold"
 when
     s : Symptom(chills == true, noSweat == true, runnyNose == true)
@@ -120,6 +131,7 @@ then
 end
 
 // --------------------- 风热感冒 ---------------------
+// 发热、咽痛、黄痰；苔薄黄
 rule "Pattern_Wind_Heat"
 when
     s : Symptom(fever == true, soreThroat == true, yellowMucus == true)
