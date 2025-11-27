@@ -10,6 +10,8 @@ import org.kie.api.builder.Message;
 import org.kie.api.runtime.KieContainer;
 import org.kie.api.runtime.KieSession;
 import org.kie.api.io.Resource;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.net.URL;
@@ -20,6 +22,8 @@ import java.util.List;
 
 @Configuration
 public class DroolsConfig {
+
+   private static final Logger log = LoggerFactory.getLogger(DroolsConfig.class);
 
    private static final String RULES_PATH = "rules/";
    private static final String DRL_SUFFIX = ".drl";
@@ -32,9 +36,11 @@ public class DroolsConfig {
        try {
            // 使用资源加载器获取所有规则文件
            List<String> ruleFiles = getRuleFiles();
+           log.info("加载规则文件: {}", ruleFiles);
            for (String ruleFile : ruleFiles) {
                String resourcePath = RULES_PATH + ruleFile;
                Resource resource = ks.getResources().newClassPathResource(resourcePath);
+               log.info("写入规则资源: {}", resourcePath);
                kfs.write(resourcePath, resource);
            }
 
@@ -42,17 +48,21 @@ public class DroolsConfig {
            Results results = kb.getResults();
 
            if (results.hasMessages(Message.Level.ERROR)) {
+               log.error("Drools 规则加载失败: {}", results.getMessages(Message.Level.ERROR));
                throw new RuntimeException("Drools 规则加载失败:\n" + results);
            }
 
+           log.info("Drools KieContainer 创建成功");
            return ks.newKieContainer(ks.getRepository().getDefaultReleaseId());
        } catch (Exception e) {
+           log.error("Drools容器初始化失败", e);
            throw new RuntimeException("Drools容器初始化失败:", e);
        }
    }
 
    @Bean
    public KieSession kieSession(KieContainer kieContainer) {
+       log.info("创建新的 KieSession");
        return kieContainer.newKieSession();
    }
 
