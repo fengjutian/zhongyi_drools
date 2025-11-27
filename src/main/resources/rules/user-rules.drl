@@ -1,7 +1,18 @@
+/*
+ * 用户风险评估规则文件
+ * 用途：根据用户年龄和信用分数评估用户风险等级
+ */
 package rules
 
+// 导入用户模型类
 import com.zhongyi.droolspro.model.User;
 
+/*
+ * 高风险用户规则
+ * 条件：年龄大于60岁且信用分数低于500分
+ * 结果：将用户风险等级设置为HIGH
+ * 优先级：10（较高优先级）
+ */
 rule "High Risk User"
     salience 10
 when
@@ -11,6 +22,12 @@ then
     $u.setRiskLevel("HIGH");
 end
 
+/*
+ * 中风险用户规则
+ * 条件：年龄大于40岁且信用分数低于650分
+ * 结果：将用户风险等级设置为MIDDLE
+ * 注：该规则优先级低于High Risk User，只有在高风险规则不满足时才会触发
+ */
 rule "Middle Risk User"
 when
     $u : User( age > 40 && creditScore < 650 )
