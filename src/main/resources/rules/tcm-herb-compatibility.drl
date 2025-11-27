@@ -2,13 +2,17 @@ package rules
 
 import com.zhongyi.droolspro.model.Prescription;
 import com.zhongyi.droolspro.model.Herb;
+import com.zhongyi.droolspro.model.Diagnosis;
+import org.slf4j.Logger;
 
 // 方剂 → 药材 → 禁忌
+global Logger log;
 
 rule "Herbs for SiJunZi"
 when
     p : Prescription(name == "四君子汤")
 then
+    log.info("配伍：四君子汤用药");
     insert(new Herb("党参", "补气", null));
     insert(new Herb("茯苓", "健脾", null));
     insert(new Herb("甘草", "调和诸药", "腹胀者慎用"));
@@ -19,5 +23,6 @@ when
     h : Herb(name == "肉桂")
     d : Diagnosis(pattern == "阴虚")
 then
+    log.info("禁忌：阴虚火旺者忌用肉桂");
     modify(h){ setContraindication("阴虚火旺者忌用") };
 end

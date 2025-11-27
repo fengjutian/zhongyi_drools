@@ -3,6 +3,9 @@ package rules
 
 import com.zhongyi.droolspro.model.Diagnosis;
 import com.zhongyi.droolspro.model.Prescription;
+import org.slf4j.Logger;
+
+global Logger log;
 
 // 辨证 → 方剂
 
@@ -10,6 +13,7 @@ rule "Prescribe for Qi Deficiency"
 when
     d : Diagnosis(pattern == "气虚")
 then
+    log.info("处方：四君子汤（气虚）");
     insert(new Prescription("四君子汤", "补气健脾"));
 end
 
@@ -17,5 +21,6 @@ rule "Prescribe for Yin Deficiency"
 when
     d : Diagnosis(pattern == "阴虚")
 then
+    log.info("处方：六味地黄丸（阴虚）");
     insert(new Prescription("六味地黄丸", "滋阴补肾"));
 end

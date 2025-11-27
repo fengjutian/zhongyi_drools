@@ -4,6 +4,9 @@ import com.zhongyi.droolspro.model.Symptom;
 import com.zhongyi.droolspro.model.Pulse;
 import com.zhongyi.droolspro.model.Tongue;
 import com.zhongyi.droolspro.model.Diagnosis;
+import org.slf4j.Logger;
+
+global Logger log;
 
 // 症状 → 辨证规则
 
@@ -15,10 +18,28 @@ when
     t : Tongue(color == "淡")
     p : Pulse(weak == true)
 then
+    log.info("命中：气虚（舌淡、脉弱）");
     insert(new Diagnosis(
         "气虚",
         "乏力、气短、自汗、舌淡、脉弱",
         0.85
+    ));
+end
+
+rule "Pattern_Qi_Deficiency_Support"
+    salience 95
+when
+    s : Symptom(fatigue == true, shortBreath == true, spontaneousSweat == true)
+    t : Tongue()
+    p : Pulse(weak == true)
+    eval( (Boolean.TRUE.equals(s.getPaleTongue()) || "淡".equals(t.getColor()))
+          && ("薄白".equals(t.getCoating()) || Boolean.TRUE.equals(s.getWeakPulse())) )
+then
+    log.info("命中：气虚（体征支持：薄白苔/舌淡/弱脉）");
+    insert(new Diagnosis(
+        "气虚",
+        "乏力、气短、自汗，体征支持：薄白苔/舌淡/弱脉",
+        0.88
     ));
 end
 

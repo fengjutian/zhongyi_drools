@@ -19,6 +19,8 @@ import com.zhongyi.droolspro.model.Pulse;
 import org.kie.api.runtime.KieSession;
 import org.kie.api.runtime.rule.FactHandle;
 import java.util.Collection;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Service
 public class DiagnosisService {
@@ -28,6 +30,8 @@ public class DiagnosisService {
 
     public Map<String, Object> diagnose(Symptom symptom, Tongue tongue, Pulse pulse) {
         KieSession session = kieSession.getKieBase().newKieSession();
+        Logger logger = LoggerFactory.getLogger("rules");
+        session.setGlobal("log", logger);
         
         try {
             // 插入事实对象
