@@ -14,29 +14,29 @@ import lombok.Builder;
 public class Symptom {
 
     // 气虚类
-    private boolean fatigue;
-    private boolean shortBreath;
-    private boolean spontaneousSweat;
-    private boolean paleTongue;
-    private boolean weakPulse;
+    private Boolean fatigue;
+    private Boolean shortBreath;
+    private Boolean spontaneousSweat;
+    private Boolean paleTongue;
+    private Boolean weakPulse;
 
     // 阴虚类
-    private boolean nightSweats;
-    private boolean dryMouth;
-    private boolean thinPulse;
+    private Boolean nightSweats;
+    private Boolean dryMouth;
+    private Boolean thinPulse;
 
     // 外感风寒
-    private boolean chills;
-    private boolean runnyNose;
-    private boolean noSweat;
+    private Boolean chills;
+    private Boolean runnyNose;
+    private Boolean noSweat;
 
     // 外感风热
-    private boolean fever;
-    private boolean soreThroat;
-    private boolean yellowMucus;
+    private Boolean fever;
+    private Boolean soreThroat;
+    private Boolean yellowMucus;
 
     // 消化系统
-    private boolean diarrhea;
-    private boolean abdominalColdPain;
-    private boolean poorAppetite;
+    private Boolean diarrhea;
+    private Boolean abdominalColdPain;
+    private Boolean poorAppetite;
 }

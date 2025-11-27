@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class User {
     private String name;
-    private int age;
-    private int creditScore;
+    private Integer age;
+    private Integer creditScore;
     private String riskLevel;
-}
+} 

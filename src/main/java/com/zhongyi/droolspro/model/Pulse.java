@@ -10,10 +10,10 @@ import lombok.AllArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Pulse {
-    private boolean weak;
-    private boolean rapid;
-    private boolean slippery;
-    private boolean wiry;
-    private boolean thin;
+    private Boolean weak;
+    private Boolean rapid;
+    private Boolean slippery;
+    private Boolean wiry;
+    private Boolean thin;
 }
 

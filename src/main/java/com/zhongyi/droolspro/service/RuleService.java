@@ -14,6 +14,8 @@ public class RuleService {
     public User executeRules(User user) {
         kieSession.insert(user);
         kieSession.fireAllRules();
+
+      System.out.printf("------------user", user.getName());
         return user;
     }
 }

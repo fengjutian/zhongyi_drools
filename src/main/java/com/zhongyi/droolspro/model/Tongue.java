@@ -12,5 +12,5 @@ import lombok.AllArgsConstructor;
 public class Tongue {
     private String color;   // 淡、红、绛、紫
     private String coating; // 薄白、黄腻、剥苔
-    private boolean cracks; // 裂纹、无裂纹
+    private Boolean cracks; // 裂纹、无裂纹
 }
