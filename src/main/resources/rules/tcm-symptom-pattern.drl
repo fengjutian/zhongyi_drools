@@ -58,6 +58,54 @@ then
     ));
 end
 
+// --------------------- 脾阳虚 ---------------------
+rule "Pattern_Spleen_Yang_Deficiency"
+    salience 85
+when
+    s : Symptom(diarrhea == true, abdominalColdPain == true, poorAppetite == true)
+    t : Tongue(color == "淡", coating == "薄白")
+    p : Pulse(weak == true)
+then
+    log.info("命中：脾阳虚（泄泻、腹冷痛、纳呆、舌淡薄白、脉弱）");
+    insert(new Diagnosis(
+        "脾阳虚",
+        "泄泻、腹冷痛、纳呆、舌淡薄白、脉弱",
+        0.86
+    ));
+end
+
+// --------------------- 湿热 ---------------------
+rule "Pattern_Damp_Heat"
+    salience 80
+when
+    s : Symptom(fever == true, yellowMucus == true)
+    t : Tongue(coating == "黄腻")
+    p : Pulse(slippery == true, rapid == true)
+then
+    log.info("命中：湿热（发热、黄痰、苔黄腻、脉滑数）");
+    insert(new Diagnosis(
+        "湿热",
+        "发热、黄痰、舌苔黄腻、脉滑数",
+        0.84
+    ));
+end
+
+// --------------------- 寒湿 ---------------------
+rule "Pattern_Cold_Damp"
+    salience 75
+when
+    s : Symptom(chills == true, diarrhea == true)
+    t : Tongue(coating == "薄白")
+    p : Pulse(slippery == true, weak == true)
+then
+    log.info("命中：寒湿（恶寒、泄泻、苔薄白、脉滑弱）");
+    insert(new Diagnosis(
+        "寒湿",
+        "恶寒、泄泻、舌苔薄白、脉滑弱",
+        0.82
+    ));
+end
+
 // --------------------- 风寒感冒 ---------------------
 rule "Pattern_Wind_Cold"
 when

@@ -24,3 +24,43 @@ then
     log.info("处方：六味地黄丸（阴虚）");
     insert(new Prescription("六味地黄丸", "滋阴补肾"));
 end
+
+rule "Prescribe for Spleen Yang Deficiency"
+when
+    d : Diagnosis(pattern == "脾阳虚")
+then
+    log.info("处方：理中汤（脾阳虚）");
+    insert(new Prescription("理中汤", "温中健脾"));
+end
+
+rule "Prescribe for Damp Heat"
+when
+    d : Diagnosis(pattern == "湿热")
+then
+    log.info("处方：三仁汤（湿热）");
+    insert(new Prescription("三仁汤", "利湿清热"));
+end
+
+rule "Prescribe for Cold Damp"
+when
+    d : Diagnosis(pattern == "寒湿")
+then
+    log.info("处方：平胃散（寒湿）");
+    insert(new Prescription("平胃散", "燥湿运脾"));
+end
+
+rule "Prescribe for Wind Cold"
+when
+    d : Diagnosis(pattern == "风寒")
+then
+    log.info("处方：荆防败毒散（风寒）");
+    insert(new Prescription("荆防败毒散", "辛温解表"));
+end
+
+rule "Prescribe for Wind Heat"
+when
+    d : Diagnosis(pattern == "风热")
+then
+    log.info("处方：银翘散（风热）");
+    insert(new Prescription("银翘散", "清热解表"));
+end

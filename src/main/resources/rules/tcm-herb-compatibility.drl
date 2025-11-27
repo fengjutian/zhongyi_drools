@@ -26,3 +26,79 @@ then
     log.info("禁忌：阴虚火旺者忌用肉桂");
     modify(h){ setContraindication("阴虚火旺者忌用") };
 end
+
+rule "Herbs for LiZhongTang"
+when
+    p : Prescription(name == "理中汤")
+then
+    log.info("配伍：理中汤用药");
+    insert(new Herb("人参", "补气", "实证慎用"));
+    insert(new Herb("白术", "健脾", "阴虚燥热慎用"));
+    insert(new Herb("干姜", "温中散寒", "阴虚火旺慎用"));
+    insert(new Herb("甘草", "调和诸药", "高血压慎用"));
+end
+
+rule "Herbs for SanRenTang"
+when
+    p : Prescription(name == "三仁汤")
+then
+    log.info("配伍：三仁汤用药");
+    insert(new Herb("杏仁", "宣肺化痰", "咳血者慎用"));
+    insert(new Herb("白蔻仁", "化湿行气", "孕妇慎用"));
+    insert(new Herb("薏苡仁", "利湿健脾", "孕妇慎用"));
+    insert(new Herb("通草", "通利水道", null));
+    insert(new Herb("竹叶", "清热除烦", null));
+end
+
+rule "Herbs for PingWeiSan"
+when
+    p : Prescription(name == "平胃散")
+then
+    log.info("配伍：平胃散用药");
+    insert(new Herb("苍术", "燥湿健脾", "阴虚津亏慎用"));
+    insert(new Herb("厚朴", "行气除满", "阴虚燥热慎用"));
+    insert(new Herb("陈皮", "理气燥湿", null));
+    insert(new Herb("生姜", "温中散寒", null));
+    insert(new Herb("大枣", "补中益气", null));
+    insert(new Herb("甘草", "调和诸药", null));
+end
+
+rule "Herbs for JingFangBaiDuSan"
+when
+    p : Prescription(name == "荆防败毒散")
+then
+    log.info("配伍：荆防败毒散用药");
+    insert(new Herb("荆芥", "疏风解表", null));
+    insert(new Herb("防风", "祛风止痛", null));
+    insert(new Herb("羌活", "祛风散寒", "阴血不足慎用"));
+    insert(new Herb("独活", "祛风湿止痛", null));
+    insert(new Herb("川芎", "活血行气", "孕妇慎用"));
+    insert(new Herb("桔梗", "宣肺利咽", null));
+    insert(new Herb("枳壳", "行气消胀", null));
+    insert(new Herb("茯苓", "健脾利湿", null));
+    insert(new Herb("薄荷", "疏散风热", null));
+    insert(new Herb("甘草", "调和诸药", null));
+end
+
+rule "Herbs for YinQiaoSan"
+when
+    p : Prescription(name == "银翘散")
+then
+    log.info("配伍：银翘散用药");
+    insert(new Herb("金银花", "清热解毒", null));
+    insert(new Herb("连翘", "清热散结", null));
+    insert(new Herb("薄荷", "疏散风热", null));
+    insert(new Herb("牛蒡子", "宣肺透疹", "脾虚便溏慎用"));
+    insert(new Herb("淡豆豉", "解表除烦", null));
+    insert(new Herb("竹叶", "清热除烦", null));
+    insert(new Herb("甘草", "调和诸药", null));
+end
+
+rule "Contra_Damp_Heat_Cinnamomi"
+when
+    h : Herb(name == "干姜")
+    d : Diagnosis(pattern == "湿热")
+then
+    log.info("禁忌：湿热证不宜用干姜");
+    modify(h){ setContraindication("湿热证不宜用") };
+end

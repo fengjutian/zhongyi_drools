@@ -23,3 +23,95 @@
 2025-11-27T20:56:07.039+08:00  INFO 38216 --- [droolspro] [http-nio-9001-exec-2] rules                                    : 处方：四君子汤（气虚）
 2025-11-27T20:56:07.039+08:00  INFO 38216 --- [droolspro] [http-nio-9001-exec-2] rules                                    : 配伍：四君子汤用药
 2025-11-27T20:56:07.039+08:00  INFO 38216 --- [droolspro] [http-nio-9001-exec-2] rules                                    : 配伍：四君子汤用药
+2025-11-27T21:08:22.974+08:00  INFO 37580 --- [droolspro] [main] c.z.d.DroolsproApplication               : Starting DroolsproApplication using Java 17.0.12 with PID 37580 (C:\Users\26401\Desktop\zhongyi_drools\target\classes started by 26401 in C:\Users\26401\Desktop\zhongyi_drools)
+2025-11-27T21:08:22.979+08:00  INFO 37580 --- [droolspro] [main] c.z.d.DroolsproApplication               : No active profile set, falling back to 1 default profile: "default"
+2025-11-27T21:08:23.681+08:00  INFO 37580 --- [droolspro] [main] o.s.b.t.TomcatWebServer                  : Tomcat initialized with port 9001 (http)
+2025-11-27T21:08:23.692+08:00  INFO 37580 --- [droolspro] [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2025-11-27T21:08:23.693+08:00  INFO 37580 --- [droolspro] [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/11.0.14]
+2025-11-27T21:08:23.740+08:00  INFO 37580 --- [droolspro] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 732 ms
+2025-11-27T21:08:23.800+08:00  INFO 37580 --- [droolspro] [main] c.z.d.c.DroolsConfig                     : 加载规则文件: [rules/tcm-herb-compatibility.drl, rules/tcm-pattern-prescription.drl, rules/tcm-symptom-pattern.drl, rules/user-rules.drl]
+2025-11-27T21:08:23.803+08:00  INFO 37580 --- [droolspro] [main] c.z.d.c.DroolsConfig                     : 添加规则资源: rules/tcm-herb-compatibility.drl
+2025-11-27T21:08:23.805+08:00  INFO 37580 --- [droolspro] [main] c.z.d.c.DroolsConfig                     : 添加规则资源: rules/tcm-pattern-prescription.drl
+2025-11-27T21:08:23.805+08:00  INFO 37580 --- [droolspro] [main] c.z.d.c.DroolsConfig                     : 添加规则资源: rules/tcm-symptom-pattern.drl
+2025-11-27T21:08:23.805+08:00  INFO 37580 --- [droolspro] [main] c.z.d.c.DroolsConfig                     : 添加规则资源: rules/user-rules.drl
+2025-11-27T21:08:24.510+08:00  INFO 37580 --- [droolspro] [main] c.z.d.c.DroolsConfig                     : Drools KieSession 创建成功
+2025-11-27T21:08:24.570+08:00  INFO 37580 --- [droolspro] [main] o.d.c.k.b.i.KieContainerImpl             : Start creation of KieBase: defaultKieBase
+2025-11-27T21:08:24.628+08:00  INFO 37580 --- [droolspro] [main] o.d.c.k.b.i.KieContainerImpl             : End creation of KieBase: defaultKieBase
+2025-11-27T21:08:24.936+08:00  INFO 37580 --- [droolspro] [main] o.s.b.t.TomcatWebServer                  : Tomcat started on port 9001 (http) with context path '/'
+2025-11-27T21:08:24.941+08:00  INFO 37580 --- [droolspro] [main] c.z.d.DroolsproApplication               : Started DroolsproApplication in 2.339 seconds (process running for 2.792)
+2025-11-27T21:08:35.861+08:00  INFO 37580 --- [droolspro] [http-nio-9001-exec-2] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-11-27T21:08:35.861+08:00  INFO 37580 --- [droolspro] [http-nio-9001-exec-2] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2025-11-27T21:08:35.862+08:00  INFO 37580 --- [droolspro] [http-nio-9001-exec-2] o.s.w.s.DispatcherServlet                : Completed initialization in 1 ms
+2025-11-27T21:08:35.971+08:00  INFO 37580 --- [droolspro] [http-nio-9001-exec-2] rules                                    : 命中：气虚（舌淡、脉弱）
+2025-11-27T21:08:35.974+08:00  INFO 37580 --- [droolspro] [http-nio-9001-exec-2] rules                                    : 命中：气虚（体征支持：薄白苔/舌淡/弱脉）
+2025-11-27T21:08:35.974+08:00  INFO 37580 --- [droolspro] [http-nio-9001-exec-2] rules                                    : 处方：四君子汤（气虚）
+2025-11-27T21:08:35.974+08:00  INFO 37580 --- [droolspro] [http-nio-9001-exec-2] rules                                    : 处方：四君子汤（气虚）
+2025-11-27T21:08:35.974+08:00  INFO 37580 --- [droolspro] [http-nio-9001-exec-2] rules                                    : 配伍：四君子汤用药
+2025-11-27T21:08:35.974+08:00  INFO 37580 --- [droolspro] [http-nio-9001-exec-2] rules                                    : 配伍：四君子汤用药
+2025-11-27T21:14:02.185+08:00  WARN 37580 --- [droolspro] [http-nio-9001-exec-5] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('}' (code 125)): was expecting double-quote to start property name]
+2025-11-27T21:14:32.230+08:00  INFO 37580 --- [droolspro] [http-nio-9001-exec-7] rules                                    : 命中：气虚（体征支持：薄白苔/舌淡/弱脉）
+2025-11-27T21:14:32.231+08:00  INFO 37580 --- [droolspro] [http-nio-9001-exec-7] rules                                    : 处方：四君子汤（气虚）
+2025-11-27T21:14:32.231+08:00  INFO 37580 --- [droolspro] [http-nio-9001-exec-7] rules                                    : 配伍：四君子汤用药
+2025-11-27T21:16:55.035+08:00  INFO 26988 --- [droolspro] [main] c.z.d.DroolsproApplication               : Starting DroolsproApplication using Java 17.0.12 with PID 26988 (C:\Users\26401\Desktop\zhongyi_drools\target\classes started by 26401 in C:\Users\26401\Desktop\zhongyi_drools)
+2025-11-27T21:16:55.041+08:00  INFO 26988 --- [droolspro] [main] c.z.d.DroolsproApplication               : No active profile set, falling back to 1 default profile: "default"
+2025-11-27T21:16:55.557+08:00  INFO 26988 --- [droolspro] [main] o.s.b.t.TomcatWebServer                  : Tomcat initialized with port 9001 (http)
+2025-11-27T21:16:55.568+08:00  INFO 26988 --- [droolspro] [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2025-11-27T21:16:55.568+08:00  INFO 26988 --- [droolspro] [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/11.0.14]
+2025-11-27T21:16:55.609+08:00  INFO 26988 --- [droolspro] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 544 ms
+2025-11-27T21:16:55.663+08:00  INFO 26988 --- [droolspro] [main] c.z.d.c.DroolsConfig                     : 加载规则文件: [rules/tcm-herb-compatibility.drl, rules/tcm-pattern-prescription.drl, rules/tcm-symptom-pattern.drl, rules/user-rules.drl]
+2025-11-27T21:16:55.666+08:00  INFO 26988 --- [droolspro] [main] c.z.d.c.DroolsConfig                     : 添加规则资源: rules/tcm-herb-compatibility.drl
+2025-11-27T21:16:55.667+08:00  INFO 26988 --- [droolspro] [main] c.z.d.c.DroolsConfig                     : 添加规则资源: rules/tcm-pattern-prescription.drl
+2025-11-27T21:16:55.668+08:00  INFO 26988 --- [droolspro] [main] c.z.d.c.DroolsConfig                     : 添加规则资源: rules/tcm-symptom-pattern.drl
+2025-11-27T21:16:55.668+08:00  INFO 26988 --- [droolspro] [main] c.z.d.c.DroolsConfig                     : 添加规则资源: rules/user-rules.drl
+2025-11-27T21:16:56.224+08:00  INFO 26988 --- [droolspro] [main] c.z.d.c.DroolsConfig                     : Drools KieSession 创建成功
+2025-11-27T21:16:56.293+08:00  INFO 26988 --- [droolspro] [main] o.d.c.k.b.i.KieContainerImpl             : Start creation of KieBase: defaultKieBase
+2025-11-27T21:16:56.338+08:00  INFO 26988 --- [droolspro] [main] o.d.c.k.b.i.KieContainerImpl             : End creation of KieBase: defaultKieBase
+2025-11-27T21:16:56.508+08:00  WARN 26988 --- [droolspro] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2025-11-27T21:16:56.513+08:00  INFO 26988 --- [droolspro] [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-11-27T21:16:56.521+08:00 ERROR 26988 --- [droolspro] [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 9001 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 9001 or configure this application to listen on another port.
+
+2025-11-27T21:20:53.690+08:00  INFO 37580 --- [droolspro] [http-nio-9001-exec-10] rules                                    : 命中：气虚（体征支持：薄白苔/舌淡/弱脉）
+2025-11-27T21:20:53.691+08:00  INFO 37580 --- [droolspro] [http-nio-9001-exec-10] rules                                    : 处方：四君子汤（气虚）
+2025-11-27T21:20:53.691+08:00  INFO 37580 --- [droolspro] [http-nio-9001-exec-10] rules                                    : 配伍：四君子汤用药
+2025-11-27T21:21:04.107+08:00  INFO 37580 --- [droolspro] [SpringApplicationShutdownHook] o.s.b.t.GracefulShutdown                 : Commencing graceful shutdown. Waiting for active requests to complete
+2025-11-27T21:21:04.428+08:00  INFO 37580 --- [droolspro] [tomcat-shutdown] o.s.b.t.GracefulShutdown                 : Graceful shutdown complete
+2025-11-27T21:21:15.238+08:00  INFO 28912 --- [droolspro] [main] c.z.d.DroolsproApplication               : Starting DroolsproApplication using Java 17.0.12 with PID 28912 (C:\Users\26401\Desktop\zhongyi_drools\target\classes started by 26401 in C:\Users\26401\Desktop\zhongyi_drools)
+2025-11-27T21:21:15.244+08:00  INFO 28912 --- [droolspro] [main] c.z.d.DroolsproApplication               : No active profile set, falling back to 1 default profile: "default"
+2025-11-27T21:21:15.912+08:00  INFO 28912 --- [droolspro] [main] o.s.b.t.TomcatWebServer                  : Tomcat initialized with port 9001 (http)
+2025-11-27T21:21:15.923+08:00  INFO 28912 --- [droolspro] [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2025-11-27T21:21:15.923+08:00  INFO 28912 --- [droolspro] [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/11.0.14]
+2025-11-27T21:21:15.972+08:00  INFO 28912 --- [droolspro] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 703 ms
+2025-11-27T21:21:16.035+08:00  INFO 28912 --- [droolspro] [main] c.z.d.c.DroolsConfig                     : 加载规则文件: [rules/tcm-herb-compatibility.drl, rules/tcm-pattern-prescription.drl, rules/tcm-symptom-pattern.drl, rules/user-rules.drl]
+2025-11-27T21:21:16.039+08:00  INFO 28912 --- [droolspro] [main] c.z.d.c.DroolsConfig                     : 添加规则资源: rules/tcm-herb-compatibility.drl
+2025-11-27T21:21:16.041+08:00  INFO 28912 --- [droolspro] [main] c.z.d.c.DroolsConfig                     : 添加规则资源: rules/tcm-pattern-prescription.drl
+2025-11-27T21:21:16.041+08:00  INFO 28912 --- [droolspro] [main] c.z.d.c.DroolsConfig                     : 添加规则资源: rules/tcm-symptom-pattern.drl
+2025-11-27T21:21:16.041+08:00  INFO 28912 --- [droolspro] [main] c.z.d.c.DroolsConfig                     : 添加规则资源: rules/user-rules.drl
+2025-11-27T21:21:16.772+08:00  INFO 28912 --- [droolspro] [main] c.z.d.c.DroolsConfig                     : Drools KieSession 创建成功
+2025-11-27T21:21:16.870+08:00  INFO 28912 --- [droolspro] [main] o.d.c.k.b.i.KieContainerImpl             : Start creation of KieBase: defaultKieBase
+2025-11-27T21:21:17.017+08:00  INFO 28912 --- [droolspro] [main] o.d.c.k.b.i.KieContainerImpl             : End creation of KieBase: defaultKieBase
+2025-11-27T21:21:17.326+08:00  INFO 28912 --- [droolspro] [main] o.s.b.t.TomcatWebServer                  : Tomcat started on port 9001 (http) with context path '/'
+2025-11-27T21:21:17.330+08:00  INFO 28912 --- [droolspro] [main] c.z.d.DroolsproApplication               : Started DroolsproApplication in 2.466 seconds (process running for 2.902)
+2025-11-27T21:21:59.344+08:00  INFO 28912 --- [droolspro] [http-nio-9001-exec-2] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-11-27T21:21:59.346+08:00  INFO 28912 --- [droolspro] [http-nio-9001-exec-2] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2025-11-27T21:21:59.358+08:00  INFO 28912 --- [droolspro] [http-nio-9001-exec-2] o.s.w.s.DispatcherServlet                : Completed initialization in 12 ms
+2025-11-27T21:21:59.616+08:00  INFO 28912 --- [droolspro] [http-nio-9001-exec-2] rules                                    : 命中：气虚（体征支持：薄白苔/舌淡/弱脉）
+2025-11-27T21:21:59.618+08:00  INFO 28912 --- [droolspro] [http-nio-9001-exec-2] rules                                    : 处方：四君子汤（气虚）
+2025-11-27T21:21:59.619+08:00  INFO 28912 --- [droolspro] [http-nio-9001-exec-2] rules                                    : 配伍：四君子汤用药
+2025-11-27T21:23:55.415+08:00  INFO 28912 --- [droolspro] [http-nio-9001-exec-9] rules                                    : 命中：气虚（体征支持：薄白苔/舌淡/弱脉）
+2025-11-27T21:23:55.419+08:00  INFO 28912 --- [droolspro] [http-nio-9001-exec-9] rules                                    : 处方：四君子汤（气虚）
+2025-11-27T21:23:55.420+08:00  INFO 28912 --- [droolspro] [http-nio-9001-exec-9] rules                                    : 配伍：四君子汤用药
+2025-11-27T21:24:56.267+08:00  INFO 28912 --- [droolspro] [http-nio-9001-exec-8] rules                                    : 处方：六味地黄丸（阴虚）
