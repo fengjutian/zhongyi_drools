@@ -264,3 +264,27 @@ Identify and stop the process that's listening on port 9001 or configure this ap
 2025-11-28T10:56:57.929+08:00  INFO 3340 --- [droolspro] [http-nio-9001-exec-2] rules                                    : 命中规则：Middle Risk User
 2025-11-28T10:57:00.431+08:00  INFO 3340 --- [droolspro] [http-nio-9001-exec-6] rules                                    : 命中规则：High Risk User
 2025-11-28T10:57:00.432+08:00  INFO 3340 --- [droolspro] [http-nio-9001-exec-6] rules                                    : 命中规则：Middle Risk User
+2025-11-28T11:00:24.876+08:00  INFO 3340 --- [droolspro] [SpringApplicationShutdownHook] o.s.b.t.GracefulShutdown                 : Commencing graceful shutdown. Waiting for active requests to complete
+2025-11-28T11:00:24.881+08:00  INFO 3340 --- [droolspro] [tomcat-shutdown] o.s.b.t.GracefulShutdown                 : Graceful shutdown complete
+2025-11-28T11:00:29.275+08:00  INFO 604 --- [droolspro] [main] c.z.d.DroolsproApplication               : Starting DroolsproApplication using Java 25.0.1 with PID 604 (D:\GitHub\droolspro\zhongyi_drools\target\classes started by A in D:\GitHub\droolspro\zhongyi_drools)
+2025-11-28T11:00:29.281+08:00  INFO 604 --- [droolspro] [main] c.z.d.DroolsproApplication               : No active profile set, falling back to 1 default profile: "default"
+2025-11-28T11:00:29.772+08:00  INFO 604 --- [droolspro] [main] o.s.b.t.TomcatWebServer                  : Tomcat initialized with port 9001 (http)
+2025-11-28T11:00:29.784+08:00  INFO 604 --- [droolspro] [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2025-11-28T11:00:29.785+08:00  INFO 604 --- [droolspro] [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/11.0.14]
+2025-11-28T11:00:29.813+08:00  INFO 604 --- [droolspro] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 504 ms
+2025-11-28T11:00:29.864+08:00  INFO 604 --- [droolspro] [main] c.z.d.c.DroolsConfig                     : 加载规则文件: [rules/tcm-herb-compatibility.drl, rules/tcm-pattern-prescription.drl, rules/tcm-symptom-pattern.drl, rules/user-rules.drl]
+2025-11-28T11:00:29.867+08:00  INFO 604 --- [droolspro] [main] c.z.d.c.DroolsConfig                     : 添加规则资源: rules/tcm-herb-compatibility.drl
+2025-11-28T11:00:29.869+08:00  INFO 604 --- [droolspro] [main] c.z.d.c.DroolsConfig                     : 添加规则资源: rules/tcm-pattern-prescription.drl
+2025-11-28T11:00:29.869+08:00  INFO 604 --- [droolspro] [main] c.z.d.c.DroolsConfig                     : 添加规则资源: rules/tcm-symptom-pattern.drl
+2025-11-28T11:00:29.870+08:00  INFO 604 --- [droolspro] [main] c.z.d.c.DroolsConfig                     : 添加规则资源: rules/user-rules.drl
+2025-11-28T11:00:30.410+08:00  INFO 604 --- [droolspro] [main] c.z.d.c.DroolsConfig                     : Drools KieSession 创建成功
+2025-11-28T11:00:30.481+08:00  INFO 604 --- [droolspro] [main] o.d.c.k.b.i.KieContainerImpl             : Start creation of KieBase: defaultKieBase
+2025-11-28T11:00:30.528+08:00  INFO 604 --- [droolspro] [main] o.d.c.k.b.i.KieContainerImpl             : End creation of KieBase: defaultKieBase
+2025-11-28T11:00:30.707+08:00  INFO 604 --- [droolspro] [main] o.s.b.t.TomcatWebServer                  : Tomcat started on port 9001 (http) with context path '/'
+2025-11-28T11:00:30.711+08:00  INFO 604 --- [droolspro] [main] c.z.d.DroolsproApplication               : Started DroolsproApplication in 1.722 seconds (process running for 2.04)
+2025-11-28T11:00:33.874+08:00  INFO 604 --- [droolspro] [http-nio-9001-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-11-28T11:00:33.874+08:00  INFO 604 --- [droolspro] [http-nio-9001-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2025-11-28T11:00:33.875+08:00  INFO 604 --- [droolspro] [http-nio-9001-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 1 ms
+2025-11-28T11:00:58.460+08:00  INFO 604 --- [droolspro] [http-nio-9001-exec-3] rules                                    : 命中：气虚（舌淡、脉弱）
+2025-11-28T11:00:58.461+08:00  INFO 604 --- [droolspro] [http-nio-9001-exec-3] rules                                    : 处方：四君子汤（气虚）
+2025-11-28T11:00:58.461+08:00  INFO 604 --- [droolspro] [http-nio-9001-exec-3] rules                                    : 配伍：四君子汤用药
